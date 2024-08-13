@@ -99,7 +99,12 @@ function searchitem(command){
 }
 function additems(items,command){
     let t=command.split(" ");
-    let p=Object.keys(cart).length;
+    console.log(cart);
+    let lastel=0;
+    for(lastel in cart){
+        console.log(lastel);
+    }
+    lastel=parseInt(lastel);
     try{
         let name=items[t[1]-1].title;
         let price=items[t[1]-1].price;
@@ -107,7 +112,7 @@ function additems(items,command){
         total+=price;
         document.getElementById("price").innerHTML=total;
         terminalOutput.innerHTML+="Added "+name+"\n";
-        cart[p+1]=[name,price,img];
+        cart[lastel+1]=[name,price,img];
         console.log(cart);
     }
     catch{
