@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Terminal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="product-catalog">
+            <div id="navbar"><img src="Logo.jpg" id="logo">
+            <a href="index.html"><button id="home">Home</button></a>
+            <a><button id="shop">Shop</button></a>
+            <a><button id="contact">Contact</button></a>
+            <a><button id="about">About</button></a>
+            <div id="search"><ion-icon name="search-outline"></ion-icon></div>
+            <div id="heart"><ion-icon name="heart-outline"></ion-icon></div>
+            <div id="cart"><ion-icon name="cart-outline"></ion-icon></div>
+            <div id="pricetag"><ion-icon style="font-size: 25px;" name="pricetag-outline"></ion-icon></div>
+            <p id="price"></p>
+        </div>
+        </div>
+        <div class="terminal">
+            <div class="terminal-window">
+                <div class="terminal-output"></div>
+                <div class="terminal-input">
+                    <span class="prompt" style="color:lightgreen;">user@ubuntu<span style="color:white";>-$</span></span>
+                    <input type="text" placeholder="Enter command..." on>
+                </div>
+            </div>
+        </div>
+        <div class="shoparea">
+            <p style="font-size: 30px;position: absolute;left: 10px;font-family: sans-serif;">Explore Products</p>
+            <div class="placeholder_item" id="item1"><div id="d1" class="desc"></div><img class="itemimage" id="i1" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p1"></p></div>
+            <div class="placeholder_item" id="item2"><div id="d2" class="desc"></div><img class="itemimage" id="i2" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p2"></p></div>
+            <div class="placeholder_item" id="item3"><div id="d3" class="desc"></div><img class="itemimage" id="i3" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p3"></p></div>
+            <div class="placeholder_item" id="item4"><div id="d4" class="desc"></div><img class="itemimage" id="i4" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p4"></p></div>
+            <div class="placeholder_item" id="item5"><div id="d5" class="desc"></div><img class="itemimage" id="i5" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p5"></p></div>
+            <div class="placeholder_item" id="item6"><div id="d6" class="desc"></div><img class="itemimage" id="i6" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p6"></p></div>
+            <div class="placeholder_item" id="item7"><div id="d7" class="desc"></div><img class="itemimage" id="i7" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p7"></p></div>
+            <div class="placeholder_item" id="item8"><div id="d8" class="desc"></div><img class="itemimage" id="i8" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p8"></p></div>
+            <div class="placeholder_item" id="item9"><div id="d9" class="desc"></div><img class="itemimage" id="i9" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p9"></p></div>
+            <div class="placeholder_item" id="item10"><div id="d10" class="desc"></div><img class="itemimage" id="i10" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p10"></p></div>
+            <div class="placeholder_item" id="item11"><div id="d11" class="desc"></div><img class="itemimage" id="i11" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p11"></p></div>
+            <div class="placeholder_item" id="item12"><div id="d12" class="desc"></div><img class="itemimage" id="i12" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p12"></p></div>
+            <div class="placeholder_item" id="item13"><div id="d13" class="desc"></div><img class="itemimage" id="i13" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p13"></p></div>
+            <div class="placeholder_item" id="item14"><div id="d14" class="desc"></div><img class="itemimage" id="i14" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p14"></p></div>
+            <div class="placeholder_item" id="item15"><div id="d15" class="desc"></div><img class="itemimage" id="i15" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p15"></p></div>
+            <div class="placeholder_item" id="item16"><div id="d16" class="desc"></div><img class="itemimage" id="i16" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p16"></p></div>
+            <div class="placeholder_item" id="item17"><div id="d17" class="desc"></div><img class="itemimage" id="i17" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p17"></p></div>
+            <div class="placeholder_item" id="item18"><div id="d18" class="desc"></div><img class="itemimage" id="i18" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p18"></p></div>
+            <div class="placeholder_item" id="item19"><div id="d19" class="desc"></div><img class="itemimage" id="i19" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p19"></p></div>
+            <div class="placeholder_item" id="item20"><div id="d20" class="desc"></div><img class="itemimage" id="i20" onmouseover="showdesc(this)" onmouseleave="hidedesc(this)"><button class="like"><ion-icon name="heart-outline"></ion-icon></button><button class="cart"><ion-icon name="bag-handle-outline"></ion-icon></button><p class="price" id="p20"></p></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
