@@ -14,6 +14,7 @@ class _MyAppState extends State<MyApp> {
   @override
   List items = [];
   List ids = [];
+  dynamic m = 0;
   var db;
   Future<void> readfav() async {
     db = await openDatabase("hero.db", version: 2, onCreate: (db, version) {
@@ -37,7 +38,7 @@ class _MyAppState extends State<MyApp> {
       items = data;
     });
 
-    _runFilter(0);
+    _runFilter(m);
   }
 
   @override
@@ -100,7 +101,8 @@ class _MyAppState extends State<MyApp> {
               height: 80,
               child: InkWell(
                 onTap: () {
-                  _runFilter(1);
+                  m = 1;
+                  _runFilter(m);
                 },
                 child: Stack(
                   children: [
@@ -131,7 +133,8 @@ class _MyAppState extends State<MyApp> {
               height: 80,
               child: InkWell(
                 onTap: () {
-                  _runFilter(2);
+                  m = 2;
+                  _runFilter(m);
                 },
                 child: Stack(
                   children: [
@@ -161,7 +164,8 @@ class _MyAppState extends State<MyApp> {
               height: 80,
               child: InkWell(
                 onTap: () {
-                  _runFilter(3);
+                  m = 3;
+                  _runFilter(m);
                 },
                 child: Stack(
                   children: [
@@ -191,7 +195,8 @@ class _MyAppState extends State<MyApp> {
                 height: 80,
                 child: InkWell(
                   onTap: () {
-                    _runFilter(0);
+                    m = 0;
+                    _runFilter(m);
                   },
                   child: Stack(
                     children: [
@@ -220,7 +225,8 @@ class _MyAppState extends State<MyApp> {
                 height: 80,
                 child: InkWell(
                   onTap: () {
-                    _runFilter(4);
+                    m = 4;
+                    _runFilter(m);
                   },
                   child: Stack(
                     children: [
@@ -272,7 +278,10 @@ class _MyAppState extends State<MyApp> {
                   color: Colors.white,
                 ),
                 child: TextField(
-                    onChanged: (value) => _runFilter(value),
+                    onChanged: (value) {
+                      m = value;
+                      _runFilter(m);
+                    },
                     decoration: InputDecoration(
                       isDense: true,
                       border: InputBorder.none,
@@ -288,7 +297,7 @@ class _MyAppState extends State<MyApp> {
             onTap: () async {
               await readfav();
               print(ids);
-              Navigator.push(
+              await Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (_) => profile(
@@ -297,7 +306,10 @@ class _MyAppState extends State<MyApp> {
                     id: ids,
                   ),
                 ),
-              );
+              ).whenComplete(readfav);
+              setState(() {
+                _runFilter(m);
+              });
             },
             child: Container(
               margin: EdgeInsets.fromLTRB(1, 20, 1, 20),
@@ -382,6 +394,16 @@ class _MyAppState extends State<MyApp> {
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                     ),
+                  ),
+                  Align(
+                    alignment: Alignment(
+                      -0.9,
+                      0.9,
+                    ),
+                    child: Icon(Icons.favorite,
+                        color: (ids.contains(_filtered[index]["id"])
+                            ? Colors.red
+                            : Colors.white)),
                   ),
                   Hero(
                     tag: _filtered[index]["images"]["md"],
@@ -1097,12 +1119,16 @@ class _profileState extends State<profile> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
         onPressed: () async {
           await a();
         },
-        child: Icon(ids.contains(pfp["id"])
-            ? Icons.favorite
-            : Icons.favorite_border_outlined),
+        child: Icon(
+          (ids.contains(pfp["id"])
+              ? Icons.favorite
+              : Icons.favorite_border_outlined),
+          color: Colors.black,
+        ),
       ),
     );
   }
