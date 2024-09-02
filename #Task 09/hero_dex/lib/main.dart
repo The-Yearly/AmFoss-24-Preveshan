@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
+import 'package:sqflite/sqflite.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -12,6 +13,22 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   List items = [];
+  List ids = [];
+  var db;
+  Future<void> readfav() async {
+    db = await openDatabase("hero.db", version: 2, onCreate: (db, version) {
+      return db.execute(
+        "CREATE TABLE fav(id INTEGER PRIMARY KEY)",
+      );
+    });
+    List<Map> b = await db.rawQuery("select id from fav");
+    ids.clear();
+    for (var g in b) {
+      ids.add(g["id"]);
+    }
+    print(ids);
+  }
+
   Future<void> readJson() async {
     final String responce =
         await rootBundle.loadString("assets/superhero.json");
@@ -29,10 +46,12 @@ class _MyAppState extends State<MyApp> {
     _filtered = items;
     super.initState();
     readJson();
+    readfav();
   }
 
-  void _runFilter(dynamic v) {
+  void _runFilter(dynamic v) async {
     List<dynamic> results = [];
+    await readfav();
     if (v == 0) {
       results = items;
     } else if (v == 1) {
@@ -47,6 +66,8 @@ class _MyAppState extends State<MyApp> {
       results = items
           .where((user) => user["biography"]["alignment"] == "neutral")
           .toList();
+    } else if (v == 4) {
+      results = items.where((user) => ids.contains(user["id"])).toList();
     } else {
       results = items
           .where((user) => user["name"].toLowerCase().contains(v.toLowerCase()))
@@ -193,6 +214,36 @@ class _MyAppState extends State<MyApp> {
                       )
                     ],
                   ),
+                )),
+            Container(
+                width: 200,
+                height: 80,
+                child: InkWell(
+                  onTap: () {
+                    _runFilter(4);
+                  },
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: Alignment(-0.8, -0.2),
+                        child: Icon(
+                          Icons.favorite,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment(0.3, 0),
+                        child: Text(
+                          "Favourite",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "JMH Typewriter",
+                              fontSize: 20),
+                        ),
+                      )
+                    ],
+                  ),
                 ))
           ],
         ),
@@ -234,13 +285,16 @@ class _MyAppState extends State<MyApp> {
         padding: EdgeInsets.all(15),
         children: List.generate(_filtered.length, (index) {
           return GestureDetector(
-            onTap: () {
+            onTap: () async {
+              await readfav();
+              print(ids);
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (_) => profile(
                     img: _filtered[index]["images"]["md"],
                     pf: jsonEncode(_filtered[index]),
+                    id: ids,
                   ),
                 ),
               );
@@ -329,14 +383,6 @@ class _MyAppState extends State<MyApp> {
                       maxLines: 2,
                     ),
                   ),
-                  Align(
-                    alignment: Alignment(-0.9, 0.9),
-                    child: Icon(
-                      Icons.favorite,
-                      color: Colors.white,
-                      size: 24,
-                    ),
-                  ),
                   Hero(
                     tag: _filtered[index]["images"]["md"],
                     child: ClipRRect(
@@ -363,8 +409,9 @@ class _MyAppState extends State<MyApp> {
 class profile extends StatefulWidget {
   final String img;
   final String pf;
-
-  profile({Key? key, required this.img, required this.pf}) : super(key: key);
+  var id;
+  profile({Key? key, required this.img, required this.pf, required this.id})
+      : super(key: key);
   @override
   State<profile> createState() => _profileState();
 }
@@ -372,19 +419,53 @@ class profile extends StatefulWidget {
 class _profileState extends State<profile> {
   late Map<String, dynamic> pfp;
   @override
+  var ids = [];
+  Future<void> readdb() async {
+    ids.clear();
+    var db = await openDatabase("hero.db");
+    List<Map> b = await db.rawQuery("select id from fav");
+    print("in");
+    print(b);
+    for (var g in b) {
+      ids.add(g["id"]);
+    }
+  }
+
   void initState() {
     super.initState();
     pfp = jsonDecode(widget.pf);
+    ids = widget.id;
+    print("i");
+    print(ids);
   }
 
-  void a() {
-    print(pfp["appearance"]);
+  Future<void> a() async {
+    var db = await openDatabase("hero.db");
+    List<Map> b = await db.rawQuery("select id from fav");
+    ids.clear();
+    for (var g in b) {
+      ids.add(g["id"]);
+    }
+    print(ids);
+    if (ids.contains(pfp["id"]) == false) {
+      await db.rawInsert("insert into fav(id) values(?)", [pfp["id"]]);
+      setState(() {
+        ids.add(pfp["id"]);
+      });
+    } else {
+      await db.rawDelete("delete from fav where id=?", [pfp["id"]]);
+      setState(() {
+        ids.remove(pfp["id"]);
+      });
+    }
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
-        body: ListView(padding: EdgeInsets.all(15), children: [
+      backgroundColor: Colors.black,
+      body: ListView(
+        padding: EdgeInsets.all(15),
+        children: [
           Container(
             margin: EdgeInsets.fromLTRB(1, 20, 1, 20),
             decoration: BoxDecoration(
@@ -466,6 +547,19 @@ class _profileState extends State<profile> {
                       ),
                       Align(
                         alignment: Alignment(-0.9, 0.5),
+                        child: Text(
+                          "Base: " +
+                              (pfp["work"]["base"] != "-"
+                                  ? pfp["work"]["base"]
+                                  : "Unknown"),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "JMH Typewriter",
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment(-0.9, 0.8),
                         child: Text(
                           "Status: " +
                               (pfp["biography"]["alignment"] == "good"
@@ -910,21 +1004,107 @@ class _profileState extends State<profile> {
                   ),
                 ),
                 Padding(padding: EdgeInsets.all(5)),
+                Container(
+                  width: 340,
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 19, 18, 21),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Text(
+                          "Family",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontFamily: "JMH Typewriter",
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment(-0.5, -0.5),
+                        child: Text(
+                          (pfp["connections"]["relatives"] != "-"
+                              ? pfp["connections"]["relatives"]
+                              : "Unknown"),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "JMH Typewriter",
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 10,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(padding: EdgeInsets.all(5)),
+                Container(
+                  width: 340,
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 19, 18, 21),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Text(
+                          "Groups",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontFamily: "JMH Typewriter",
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment(-0.5, -0.5),
+                        child: Text(
+                          (pfp["connections"]["groupAffiliation"] != "-"
+                              ? pfp["connections"]["groupAffiliation"]
+                              : "Unknown"),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "JMH Typewriter",
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 10,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment(-0.5, 0.4),
+                        child: Text(
+                          (pfp["work"]["occupation"] != "-"
+                              ? pfp["work"]["occupation"]
+                              : "Unknown"),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "JMH Typewriter",
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 10,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(padding: EdgeInsets.all(5)),
               ],
             ),
           ),
           Padding(padding: EdgeInsets.all(10)),
-        ]),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            a();
-          },
-          backgroundColor: Colors.white,
-          child: Icon(
-            Icons.favorite,
-            color: Colors.black,
-          ),
-        ));
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await a();
+        },
+        child: Icon(ids.contains(pfp["id"])
+            ? Icons.favorite
+            : Icons.favorite_border_outlined),
+      ),
+    );
   }
 }
 
