@@ -4,4 +4,7 @@ Tasks For Preveshan
 # Task Status
 | Task List | Description | Statuss|
 |---|---|---|
+| Task-00 | Install Linux | Completed |
+| Task-01 | Type-Maestro |
+
 
