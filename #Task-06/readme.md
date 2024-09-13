@@ -5,10 +5,9 @@ This Repository Is Documention Of [Micro-Blog](https://github.com/miguelgrinberg
 An MicroBloggin Platform powered by python and flask
 ### Features
 ### Installation
-  #### 1.Cloning The Repository
+  #### 1. Cloning The Repository
     git clone https://github.com/miguelgrinberg/microblog
-  ####
-  **Setting Up The Virtual Enviournment**
+  ### 2. Setting Up The Virtual Enviournment
   - Go To The Directory microblog
   ```bash 
   cd microblog
@@ -19,17 +18,24 @@ An MicroBloggin Platform powered by python and flask
     ```
   - Start The Virtual Environment
     - Linux/Mac
-    ```bash
-    $ source venv/bin/activate
-    ```
+      ```bash
+      $ source venv/bin/activate
+      ```
     - Windows
       - In Command Prompt
-      ```bash
-      $ venv\Scripts\activate
-      ```
+        ```bash
+        $ venv\Scripts\activate
+        ```
       - In PowerShell
         ```bash
         $ venv\Scripts\Activate.ps1
         ```
+  ### 3. Installing Dependencies
+  ```bash
+pip install -r requirements.txt
+  ```
+### 4. Migrating The Databases
+    flask db upgrade 
+    
     
   
