@@ -7,7 +7,7 @@ An MicroBloggin Platform powered by python and flask
 ### Installation
   #### 1. Cloning The Repository
     git clone https://github.com/miguelgrinberg/microblog
-  ### 2. Setting Up The Virtual Enviournment
+  #### 2. Setting Up The Virtual Enviournment
   - Go To The Directory microblog
   ```bash 
   cd microblog
@@ -30,12 +30,15 @@ An MicroBloggin Platform powered by python and flask
         ```bash
         $ venv\Scripts\Activate.ps1
         ```
-  ### 3. Installing Dependencies
+  #### 3. Installing Dependencies
   ```bash
 pip install -r requirements.txt
   ```
-### 4. Migrating The Databases
+#### 4. Migrating The Databases
     flask db upgrade 
+#### 5. Running The App
+    flask run
+#### 6. Go To http://localhost:5000/ to access Microblog
     
     
   
