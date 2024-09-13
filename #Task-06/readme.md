@@ -4,6 +4,10 @@ This Repository Is Documention Of [Micro-Blog](https://github.com/miguelgrinberg
 ### Overview
 An MicroBloggin Platform powered by python and flask
 ### Features
+- **User Authentication: Allows User Registration And Logins**
+- **Micro-Blogging: Allows Sending of Small Messages By Users**
+- **User-Profile: Provides Changing And Tweaking Of User Profiles**
+- **
 ### Installation
   #### 1. Cloning The Repository
     git clone https://github.com/miguelgrinberg/microblog
@@ -38,7 +42,7 @@ pip install -r requirements.txt
     flask db upgrade 
 #### 5. Running The App
     flask run
-#### 6. Go To http://localhost:5000/ to access Microblog
+##### 6. Go To http://localhost:5000/ to access Microblog
     
     
   
