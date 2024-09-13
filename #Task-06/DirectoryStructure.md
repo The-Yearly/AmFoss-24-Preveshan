@@ -1,3 +1,5 @@
+# Directory Structure
+```
 ├── LICENSE
 ├── MANIFEST
 ├── README.md
@@ -31,4 +33,5 @@
 ├── requirements.txt
 ├── setup.cfg
 └── setup.py
+```
 
