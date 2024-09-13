@@ -11,7 +11,7 @@ if ((n%2)==1){
         }
         console.log("*".repeat(m))
         m+=(s2*2)
-        c+=(s1*1)
+        c+=s1
         if (c==0){
             s1=1}
         if (m>n){
