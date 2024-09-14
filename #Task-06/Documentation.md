@@ -21,4 +21,12 @@ Microblog by Micheal Gunberg is a web application created using pyhon and flask
    - **``reindex(cls)``:** Reindex's All Elements Based On Changes Made
  - **```PaginatedAPIMixin``` : Proviedes pagination for Api Responces**
     - ```to_collection_dict(query, page, per_page, endpoint, **kwargs)``` :*** Converts query responce in paginated dictionary format
+ - **User: Contains User Attributes And Functions**
+   - **```_repr__(self) ```:** Returns a string representation of the user
+   - **```set_password(self, password)```:** Sets the user password
+   - **```check_password(self, password)``` :** Checks If Passwords Match
+   - **```avatar(self, size)``` :** Provides Users Avatar
+   - **```follow(self, user):``` :** Adds User to their follow list
+   - **```unfollow(self, user)``` :*** Removes a user from the following list
+   
    
