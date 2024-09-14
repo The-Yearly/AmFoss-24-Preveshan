@@ -7,7 +7,7 @@ Tasks For Preveshan
 | [Task-00](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-0)  | Install Linux | Completed |
 | [Task-01](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-01) | Type-Maestro | Completed |
 | [Task-02](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-02) | Terminal Chaos | Completed |
-| [Task-03](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-03) | Hello World | Partial Completed |
+| [Task-03](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-03) | Hello World | Completed |
 | [Task-04](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-04) | Gopal And His PagePal | Completed |
 | [Task-05](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-05) | TerminalTrolly | Completed |
 | [Task-06](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-06) | OpenDocs | Partially Completed |
