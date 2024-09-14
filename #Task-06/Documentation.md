@@ -60,4 +60,10 @@ Microblog by Micheal Gunberg is a web application created using pyhon and flask
 ### Task
 - **```_set_task_progress(progress)```:** Updates Progess bar
 - **```export_posts(user_id)```:** Exports A Users Posts
-   
+# Impletation
+## The Site Creation
+  **The Website Creation is done in by ```__init__.py``` and using ```flask run``` would host the website on localhost:5000**
+## User Creation 
+ **All user creation and attributes are being handled by ```models.py```**
+## Post Creation
+ **All Post creations and updating are being done also being handled by ```models.py```**
