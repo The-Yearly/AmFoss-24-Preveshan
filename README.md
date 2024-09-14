@@ -11,6 +11,8 @@ If Im selected for the club, I will fully engage in all activities,and support t
 In the next six months, my primary goal is to deepen my understanding of emerging technologies and to enhance my existing skills in both familiar and new domains. I plan to achieve this by rigorous studying of emerging technologies and working on hands-on projects, and take relevant courses need to develop my skills
 # HOW WILL YOU CONTRIBUTE BACK TO THE CLUB?
 I am a hard worker and a great team player. If I join the club, I will ensure that I give it my 100% by actively participating in all club activities and being available to support any needs the club might have. And I promise that I won't shy away from any challenges. I also promise that I will do anything to make the club a better place.
+# WHAT ARE YOUR THOUGHTS AND FEEDBACK ON THE PRAVESHAN SELECTION PROCESS?
+Really good as they tasks gave me a good insight of tools im using and also like consisted of me builting actuall tools that i might end up using daily like the book recommending bot and subtitles downloading web scrapper
 # Task Status
 | Task List | Description | Statuss|
 |---|---|---|
