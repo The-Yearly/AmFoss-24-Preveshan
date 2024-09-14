@@ -58,5 +58,6 @@ Microblog by Micheal Gunberg is a web application created using pyhon and flask
  - **```send_async_email(app, msg)``` :** Sends email
  - **```send_email(subject, sender, recipients, text_body, html_body, attachments=None, sync=False)```:** Constructs And Sends THe Mail Based Ont The Contents Given
 ### Task
-- ***````
+- **```_set_task_progress(progress)```:** Updates Progess bar
+- **```export_posts(user_id)```:** Exports A Users Posts
    
