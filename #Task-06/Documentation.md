@@ -15,4 +15,10 @@ Microblog by Micheal Gunberg is a web application created using pyhon and flask
   - **```query_index(index, query, page, per_page)``` :** Searches ElasticSearch And produces the result
 ### Models
 - **SearchableMixin : Provides functionality for indexing and searching model instances in Elasticsearch.**
+   - **```search(cls, expression, page, per_page)``` :** Returns page of query result when found
+   - **``before_commit(cls, session)`` :** Stores All Data Changes Before Commiting
+   - **```after_commit(cls, session)``` :** Updates Changes
+   - **``reindex(cls)``:** Reindex's All Elements Based On Changes Made
+ - **```PaginatedAPIMixin``` : Proviedes pagination for Api Responces**
+    - ```to_collection_dict(query, page, per_page, endpoint, **kwargs)``` :*** Converts query responce in paginated dictionary format
    
