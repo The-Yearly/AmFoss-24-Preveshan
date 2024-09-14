@@ -22,6 +22,6 @@ I am a hard worker and a great team player. If I join the club, I will ensure th
 | [Task-05](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-05) | TerminalTrolly | Completed |
 | [Task-06](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-06) | OpenDocs | Completed |
 | [Task-07](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-07)| Pirate's Dilemma| Completed |
-| Task-08 | Blog Burst | |
+| [Task-08](https://github.com/The-Yearly/AmFoss-24-Preveshan) | Blog Burst | Completed |
 | [Task-09](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-09) | HERO-DEX! | Completed |
 | [Task-10](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-10) | Operation Pixel Merge | Completed |
