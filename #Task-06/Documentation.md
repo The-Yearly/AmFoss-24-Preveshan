@@ -41,7 +41,8 @@ Microblog by Micheal Gunberg is a web application created using pyhon and flask
    - **```get_task_in_progress(self, name)``` :** Retriives Task in prograss based on specific name
    - **```posts_count(self)``` :** Retrieves Number Of Posts Made By User
    - **```to_dict(self, include_email=False)``` :** Converts user data into dictionary except for email
-   - **```from_dict(self, data, new_user=False)```:** Updates the user object from a dictionary.
-   - 
-   
+   - **```from_dict(self, data, new_user=False)```:** Updates the user object from a dictionary
+   - **```get_token(self, expires_in=3600)``` :** Retrieves an authentication token
+   - **```revoke_token(self) ```:** Revokes User Token
+   - **```check_token(token)```:** Checkss the validity of toen   
    
