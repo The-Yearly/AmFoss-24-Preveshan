@@ -10,7 +10,7 @@ Tasks For Preveshan
 | [Task-03](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-03) | Hello World | Completed |
 | [Task-04](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-04) | Gopal And His PagePal | Completed |
 | [Task-05](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-05) | TerminalTrolly | Completed |
-| [Task-06](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-06) | OpenDocs | Partially Completed |
+| [Task-06](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-06) | OpenDocs | Completed |
 | [Task-07](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-07)| Pirate's Dilemma| Completed |
 | Task-08 | Blog Burst | |
 | [Task-09](https://github.com/The-Yearly/AmFoss-24-Preveshan/tree/main/%23Task-09) | HERO-DEX! | Completed |
