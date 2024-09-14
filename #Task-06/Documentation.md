@@ -53,5 +53,10 @@ Microblog by Micheal Gunberg is a web application created using pyhon and flask
      - **```get_data(self)```:** Returns the notification's payload as a dictionary
   - **Task-Contains Baground Tasks**
      - **```get_rq_job(self)```:** Retrieves the rqjob mentioned with the task
-     - **```get_progress(self)```:** Returns the progress of the rqjob. 
+     - **```get_progress(self)```:** Returns the progress of the rqjob
+ ### Email
+ - **```send_async_email(app, msg)``` :** Sends email
+ - **```send_email(subject, sender, recipients, text_body, html_body, attachments=None, sync=False)```:** Constructs And Sends THe Mail Based Ont The Contents Given
+### Task
+- ***````
    
