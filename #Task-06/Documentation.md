@@ -44,5 +44,5 @@ Microblog by Micheal Gunberg is a web application created using pyhon and flask
    - **```from_dict(self, data, new_user=False)```:** Updates the user object from a dictionary
    - **```get_token(self, expires_in=3600)``` :** Retrieves an authentication token
    - **```revoke_token(self) ```:** Revokes User Token
-   - **```check_token(token)```:** Checkss the validity of toen   
+   - **```check_token(token)```:** Checkss the validity of token   
    
