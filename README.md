@@ -1,6 +1,16 @@
 # AmFoss-24-Preveshan
 Tasks For Preveshan
 # About Me
+So my name is John Yohan Skaria. I am a S3 B-Tech Cse Student
+I am an avid coder and started coding since I was in 8th grade.
+I am really interested in open-source projects. I am a really hard worker and a good team player. I am very much goal-orientated. 
+My hobbies include reading and coding.
+# WHY SHOULD WE CHOOSE YOU?
+If Im selected for the club, I will fully engage in all activities,and support the club’s every need any way i can,and contribute actively to making the club a better place.
+# WHAT ARE YOUR GOALS FOR THE NEXT 6 MONTHS? HOW WILL YOU ACCOMPLISH THEM?
+In the next six months, my primary goal is to deepen my understanding of emerging technologies and to enhance my existing skills in both familiar and new domains. I plan to achieve this by rigorous studying of emerging technologies and working on hands-on projects, and take relevant courses need to develop my skills
+# HOW WILL YOU CONTRIBUTE BACK TO THE CLUB?
+I am a hard worker and a great team player. If I join the club, I will ensure that I give it my 100% by actively participating in all club activities and being available to support any needs the club might have. And I promise that I won't shy away from any challenges. I also promise that I will do anything to make the club a better place.
 # Task Status
 | Task List | Description | Statuss|
 |---|---|---|
