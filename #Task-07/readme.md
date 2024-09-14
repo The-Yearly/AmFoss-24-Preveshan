@@ -1,2 +1,3 @@
 # Approach
-In the beganning beautiful soup seemed to advanced for me but after watching a couple of tutoriasl i faced no issues
+This was one of the tasks that I procrastinated a lot about. this was because like a long time ago i had tried BeautifulSoup4 but couldnt figure out how to use it. And with the added challenge of creating of a virtual enviournment I was really doubtful that i could do it. Only to realize that creating a venv was not at all a complicated thing and moreover with the help of proper tutorials BeautifulSoup4 too seemed easy. From their most of the downloading stuff was easy 
+as i was able to easly implement them but the only thing that i didnt really understand was about the hash size filter. So after discussing with the person who made the task that doubt too was cleared for me. This is a really great task as it teaches u how to use BeautifulSoup4 properly and actually is a great tool indivitually which i can see myself using a lot
